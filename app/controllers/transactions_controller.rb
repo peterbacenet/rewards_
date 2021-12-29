@@ -54,22 +54,12 @@ def spend
                             Transaction.create!(user_id:trans.user_id, partner_id:trans.partner_id,  redeemed: false, points:remaining_bal, timestamp:trans.timestamp)
                         #update spend_points to zero
                             spend_points=0
-
-                        # finalizing response, create debit transactions performed
-                            result.each do |t|
-                                user = 1
-                                partner = Partner.find_by(name: t[:payer]).id
-                                timestamp = Time.now.utc.iso8601
-                                points = t[:points]
-                                Transaction.create!(user_id: user, partner_id:partner, redeemed: true, timestamp: timestamp, points:points )
-                            end
                             #returns transactions logged and created from the loop, demonstrating how many points were deducted and from who
                             render json: result, status: 200
-                    end
+                end
             end
         end     
     end 
-
 
 private
 

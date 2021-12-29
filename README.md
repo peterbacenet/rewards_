@@ -21,8 +21,8 @@ Please note,  partner_id represents which partner these points should be attribu
 
 2. User can see balances:
 
-        GET to “/balances” --> “partners#all_points”
-        GET to “/balances/:id” -->“partners#points”
+        GET to “/balances” --> “partners#points_balance”
+        GET to “/balances/:id” -->“partners#balance”
     
     The action methods all_points & points represent total balances and single balances for each payer. These methods only count points where “redeemed == false” indicating that the points being calculated have not been spent. These actions calculate a new balance every time they are called, and can change as points are added/spent.
 
