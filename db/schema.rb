@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2021_12_25_162157) do
 
   create_table "partners", force: :cascade do |t|
     t.string "name"
-    t.integer "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

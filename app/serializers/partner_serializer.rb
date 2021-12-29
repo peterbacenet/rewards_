@@ -1,3 +1,3 @@
 class PartnerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :balance
+  attributes :id, :name
 end

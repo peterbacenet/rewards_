@@ -1,8 +1,6 @@
 class TransactionsController < ApplicationController
 
-
-
-def create
+    def create
     new_tran = Transaction.new(trans_params)
     if new_tran.save
         # new_tran.partner.update(balance: (new_tran.partner.balance + new_tran.points))
@@ -13,12 +11,10 @@ def create
 end
 
 
-def spend
-    #establish points we want to spend versus available points
+    def spend
+    #establish method variables, points we want to spend versus available points
     spend_points = (params[:points])
-
     result = []
-    
     available_points = (Transaction.all.where(redeemed:false).sum(:points))
 
         if (spend_points > available_points) 
@@ -43,7 +39,6 @@ def spend
 
                     elsif (trans.redeemed == false && trans.points > spend_points && spend_points != 0)
                         #final loop, when we will partially redeem from the last payer to cover spend_points
-
                         #get new transaction point value, this will be a new transaction left unredeemed from the same payer
                             remaining_bal = trans.points - spend_points
                         #push final transaction to result
@@ -56,10 +51,10 @@ def spend
                             spend_points=0
                             #returns transactions logged and created from the loop, demonstrating how many points were deducted and from who
                             render json: result, status: 200
-                end
-            end
-        end     
-    end 
+                    end
+        end
+    end     
+end 
 
 private
 
