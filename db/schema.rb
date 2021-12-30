@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_162157) do
     t.bigint "user_id", null: false
     t.bigint "partner_id", null: false
     t.integer "points"
-    t.boolean "redeemed"
-    t.datetime "timestamp"
+    t.boolean "redeemed", default: false
+    t.datetime "timestamp", default: "2021-12-30 02:32:57"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["partner_id"], name: "index_transactions_on_partner_id"

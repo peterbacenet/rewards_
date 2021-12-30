@@ -6,7 +6,7 @@ class TransactionsController < ApplicationController
         # new_tran.partner.update(balance: (new_tran.partner.balance + new_tran.points))
         render json: new_tran, status: :created
     else
-        render json new_tran.errors, status: 422
+        render json: new_tran.errors, status: 422
     end
 end
 
@@ -59,7 +59,7 @@ end
 private
 
     def trans_params
-        params.permit(:user_id, :partner_id, :redeemed, :timestamp, :points)
+        params.permit(:user_id, :partner_id, :points, :redeemed => false, timestamp: Time.now.iso8601)
     end
 
 end
