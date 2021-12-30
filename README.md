@@ -1,6 +1,7 @@
 # README
 
 Fetch Rewards Assignment, Backend Engineer, Peter Bacenet
+
 Technologies Used: Ruby on Rails Backend, Postman for Tests, and PostgreSQL database
 
 Objectives:
